@@ -7,7 +7,8 @@ a { color: inherit; text-decoration: none; }
 .header { position: sticky; top: 0; z-index: 10; background: rgba(9,9,11,.94); border-bottom: 1px solid rgba(250,204,21,.2); backdrop-filter: blur(12px); }
 .headerInner { min-height: 76px; display: flex; align-items: center; justify-content: space-between; gap: 20px; }
 .brand { display: flex; align-items: center; gap: 12px; }
-.brandMark { width: 46px; height: 46px; border-radius: 16px; background: #facc15; display: grid; place-items: center; font-size: 24px; }
+.brandMark { width: 46px; height: 46px; border-radius: 16px; background: #facc15; display: grid; place-items: center; overflow: hidden; }
+.brandMarkImage { width: 100%; height: 100%; object-fit: cover; display: block; }
 .brandTitle { font-size: 22px; font-weight: 900; text-transform: uppercase; }
 .brandSubtitle { font-size: 11px; letter-spacing: .28em; color: #fde047; text-transform: uppercase; }
 .nav { display: flex; gap: 22px; color: #d4d4d8; font-size: 14px; }
@@ -26,11 +27,9 @@ h1 span, h2 { color: #facc15; }
 .heroText p, .lead { color: #d4d4d8; font-size: 19px; line-height: 1.7; max-width: 650px; }
 .actions { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 32px; }
 .logoCard { border: 1px solid rgba(250,204,21,.28); background: rgba(24,24,27,.88); border-radius: 32px; padding: 28px; box-shadow: 0 24px 80px rgba(250,204,21,.12); }
-.logoBox { aspect-ratio: 1/1; border-radius: 24px; background: linear-gradient(135deg, #facc15, #eab308, #09090b); display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; border: 1px solid rgba(250,204,21,.35); }
-.logoIcon { font-size: 84px; }
-.logoMain { margin-top: 16px; font-size: 48px; font-weight: 900; letter-spacing: -0.06em; }
-.logoSmall { margin-top: 8px; letter-spacing: .38em; color: #fef08a; font-size: 12px; }
-.logoCard p { color: #a1a1aa; text-align: center; }
+.logoBox { aspect-ratio: 1/1; border-radius: 24px; background: #09090b; display: flex; align-items: center; justify-content: center; text-align: center; border: 1px solid rgba(250,204,21,.35); overflow: hidden; }
+.logoBoxImage { padding: 0; }
+.logoImage { width: 100%; height: 100%; object-fit: cover; display: block; }
 .section { padding: 78px 0; }
 .dark { background: rgba(24,24,27,.72); }
 .eyebrow { color: #fde047; font-size: 13px; font-weight: 900; letter-spacing: .3em; text-transform: uppercase; }

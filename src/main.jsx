@@ -2,6 +2,7 @@
 import React from 'react';
 import { createRoot } from 'react-dom/client';
 import './styles.css';
+import shershniLogo from './assets/shershni-logo.png';
 
 function App() {
   const teams = ['Дитяча хокейна школа', 'Юнацькі команди', 'Тренерський штаб', 'Майбутня основна команда'];
@@ -11,7 +12,9 @@ function App() {
       <header className="header">
         <div className="container headerInner">
           <div className="brand">
-            <div className="brandMark">🐝</div>
+            <div className="brandMark">
+              <img src={shershniLogo} alt="ХК Шершні" className="brandMarkImage" />
+            </div>
             <div>
               <div className="brandTitle">Шершні</div>
               <div className="brandSubtitle">Hockey Club</div>
@@ -46,12 +49,9 @@ function App() {
             </div>
 
             <div className="logoCard">
-              <div className="logoBox">
-                <div className="logoIcon">🐝</div>
-                <div className="logoMain">HORNETS</div>
-                <div className="logoSmall">SHERSHNI HC</div>
+              <div className="logoBox logoBoxImage">
+                <img src={shershniLogo} alt="Логотип ХК Шершні" className="logoImage" />
               </div>
-              <p>Тут поставимо фінальний логотип клубу.</p>
             </div>
           </div>
         </section>
