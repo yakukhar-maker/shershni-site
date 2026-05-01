@@ -1,11 +1,34 @@
-
 import React from 'react';
 import { createRoot } from 'react-dom/client';
 import './styles.css';
 import shershniLogo from './assets/shershni-logo.png';
 
+import heroPhoto from './assets/photos/photo-1.jpg';
+import clubPhoto from './assets/photos/photo-5.jpg';
+import schoolPhoto from './assets/photos/photo-8.jpg';
+import teamPhoto1 from './assets/photos/photo-2.jpg';
+import teamPhoto2 from './assets/photos/photo-6.jpg';
+import teamPhoto3 from './assets/photos/photo-7.jpg';
+import teamPhoto4 from './assets/photos/photo-9.jpg';
+import media1 from './assets/photos/photo-3.jpg';
+import media2 from './assets/photos/photo-4.jpg';
+
 function App() {
-  const teams = ['Дитяча хокейна школа', 'Юнацькі команди', 'Тренерський штаб', 'Майбутня основна команда'];
+  const teams = [
+    { title: 'Дитяча хокейна школа', text: 'Перші тренування, базова техніка катання, ключка та командна дисципліна.', image: clubPhoto },
+    { title: 'Юнацькі команди', text: 'Матчі, турніри, розвиток гравців і формування клубної системи.', image: teamPhoto2 },
+    { title: 'Тренерський штаб', text: 'Підготовка до ігор, тренування та індивідуальна робота з гравцями.', image: teamPhoto1 },
+    { title: 'Майбутня основна команда', text: 'Наступний етап розвитку — створення дорослої команди.', image: teamPhoto4 },
+  ];
+
+  const gallery = [
+    { src: teamPhoto1, title: 'Вкидання шайби' },
+    { src: media1, title: 'Атака Шершнів' },
+    { src: media2, title: 'Боротьба біля воріт' },
+    { src: clubPhoto, title: 'Команда на льоду' },
+    { src: teamPhoto3, title: 'Ігровий момент' },
+    { src: teamPhoto4, title: 'Командні емоції' },
+  ];
 
   return (
     <div className="site">
@@ -24,6 +47,7 @@ function App() {
             <a href="#club">Клуб</a>
             <a href="#school">Школа</a>
             <a href="#teams">Команди</a>
+            <a href="#media">Медіа</a>
             <a href="#news">Новини</a>
             <a href="#partners">Партнери</a>
             <a href="#contacts">Контакти</a>
@@ -48,9 +72,10 @@ function App() {
               </div>
             </div>
 
-            <div className="logoCard">
-              <div className="logoBox logoBoxImage">
-                <img src={shershniLogo} alt="Логотип ХК Шершні" className="logoImage" />
+            <div className="heroPhotoCard">
+              <img src={heroPhoto} alt="Гравці ХК Шершні на матчі" />
+              <div className="heroPhotoLogo">
+                <img src={shershniLogo} alt="Логотип ХК Шершні" />
               </div>
             </div>
           </div>
@@ -60,11 +85,14 @@ function App() {
           <div className="container">
             <div className="eyebrow">Клуб</div>
             <h2>Про Шершнів</h2>
-            <div className="cards">
-              <div className="card"><h3>Амбіція</h3><p>Стати сильним клубом області та поступово виходити на національний рівень.</p></div>
-              <div className="card"><h3>Діти</h3><p>Розвивати дитячу школу та утримувати талановитих гравців у системі клубу.</p></div>
-              <div className="card"><h3>Медіа</h3><p>Показувати тренування, матчі, голи, історії гравців і життя клубу.</p></div>
-              <div className="card"><h3>Мерч</h3><p>Форма, шарфи, кепки та клубна атрибутика через shershni.store.</p></div>
+            <div className="aboutGrid">
+              <div className="aboutPhoto"><img src={clubPhoto} alt="Гравці ХК Шершні" /></div>
+              <div className="cards">
+                <div className="card"><h3>Амбіція</h3><p>Стати сильним клубом області та поступово виходити на національний рівень.</p></div>
+                <div className="card"><h3>Діти</h3><p>Розвивати дитячу школу та утримувати талановитих гравців у системі клубу.</p></div>
+                <div className="card"><h3>Медіа</h3><p>Показувати тренування, матчі, голи, історії гравців і життя клубу.</p></div>
+                <div className="card"><h3>Мерч</h3><p>Форма, шарфи, кепки та клубна атрибутика через shershni.store.</p></div>
+              </div>
             </div>
           </div>
         </section>
@@ -78,6 +106,7 @@ function App() {
                 Залиште заявку, і представник клубу звʼяжеться з вами щодо тренувань,
                 вікової групи, розкладу та умов участі.
               </p>
+              <div className="schoolPhoto"><img src={schoolPhoto} alt="Гравець ХК Шершні" /></div>
             </div>
             <form className="form" action="mailto:info@shershni.com.ua" method="post" encType="text/plain">
               <input name="name" placeholder="Імʼя дитини" />
@@ -95,24 +124,39 @@ function App() {
             <h2>Команди клубу</h2>
             <div className="teamGrid">
               {teams.map(item => (
-                <div className="team" key={item}>
-                  <div className="teamImage"></div>
-                  <h3>{item}</h3>
-                  <p>Сторінка з описом, розкладом, тренерами та фото.</p>
+                <div className="team" key={item.title}>
+                  <img className="teamImage" src={item.image} alt={item.title} />
+                  <h3>{item.title}</h3>
+                  <p>{item.text}</p>
                 </div>
               ))}
             </div>
           </div>
         </section>
 
-        <section id="news" className="section dark">
+        <section id="media" className="section dark">
+          <div className="container">
+            <div className="eyebrow">Медіа</div>
+            <h2>Фото з матчів</h2>
+            <div className="galleryGrid">
+              {gallery.map(item => (
+                <figure className="galleryItem" key={item.title}>
+                  <img src={item.src} alt={item.title} />
+                  <figcaption>{item.title}</figcaption>
+                </figure>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section id="news" className="section">
           <div className="container">
             <div className="eyebrow">Новини</div>
             <h2>Останні оновлення</h2>
             <div className="newsGrid">
-              <article><div></div><h3>Шершні готуються до нового сезону</h3><p>Команда продовжує тренувальний процес і формує оновлену структуру клубу.</p></article>
-              <article><div></div><h3>Відкритий набір у хокейну школу</h3><p>Запрошуємо дітей різного віку на тренування. Перший крок — залишити заявку.</p></article>
-              <article><div></div><h3>Новий етап розвитку клубу</h3><p>Ми оновлюємо бренд, сайт, соціальні мережі та комунікацію.</p></article>
+              <article><img src={teamPhoto1} alt="Матч Шершнів" /><h3>Шершні готуються до нового сезону</h3><p>Команда продовжує тренувальний процес і формує оновлену структуру клубу.</p></article>
+              <article><img src={clubPhoto} alt="Хокейна школа" /><h3>Відкритий набір у хокейну школу</h3><p>Запрошуємо дітей різного віку на тренування. Перший крок — залишити заявку.</p></article>
+              <article><img src={teamPhoto4} alt="Командні емоції" /><h3>Новий етап розвитку клубу</h3><p>Ми оновлюємо бренд, сайт, соціальні мережі та комунікацію.</p></article>
             </div>
           </div>
         </section>
