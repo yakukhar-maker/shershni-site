@@ -50,7 +50,10 @@ input, textarea { width: 100%; padding: 16px; background: #18181b; border: 1px s
 textarea { min-height: 120px; resize: vertical; }
 input:focus, textarea:focus { border-color: #facc15; }
 .teamGrid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }
-.teamImage { width: 100%; height: 180px; border-radius: 18px; margin-bottom: 20px; object-fit: cover; background: linear-gradient(135deg, rgba(250,204,21,.34), rgba(9,9,11,.85)); }
+.team { transition: transform .25s ease, border-color .25s ease, box-shadow .25s ease; }
+.team:hover { transform: translateY(-4px); border-color: rgba(250,204,21,.42); box-shadow: 0 18px 50px rgba(250,204,21,.08); }
+.teamImage { width: 100%; height: 180px; border-radius: 18px; margin-bottom: 20px; object-fit: cover; background: linear-gradient(135deg, rgba(250,204,21,.34), rgba(9,9,11,.85)); transition: transform .35s ease; }
+.team:hover .teamImage { transform: scale(1.03); }
 .galleryGrid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
 .galleryItem { margin: 0; position: relative; overflow: hidden; min-height: 310px; border-radius: 24px; border: 1px solid rgba(250,204,21,.2); background: #18181b; }
 .galleryItem img { width: 100%; height: 100%; min-height: 310px; object-fit: cover; transition: transform .35s ease; }
